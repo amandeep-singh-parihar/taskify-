@@ -1,13 +1,14 @@
-const Task = require("../models/task.model");
+const Task = require("../models/task.model"); // import the Task model
 
+// creating the controller (function) which will invoke when hitting the route which it is mapped with
 exports.updateTaskById = async (req, res) => {
     try {
-        const id = req.params.id;
-        const { title, description, status } = req.body;
+        const id = req.params.id; // retrive the id from the params
+        const { title, description, status } = req.body; // retrive the title , description , status want to update
         const task_to_update = await Task.findByIdAndUpdate(
-            { _id: id },
-            { title, description, status, updatedAt: Date.now() },
-            { new: true }
+            { _id: id }, // find on the basis of id
+            { title, description, status, updatedAt: Date.now() }, // fields to update
+            { new: true } // this function sends the response of new data (updated data)
         );
         res.status(200).json({
             success: true,

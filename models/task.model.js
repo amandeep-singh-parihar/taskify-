@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"); // import the mongoose as this model is going to save in the mongoDB
 
 const taskSchema = new mongoose.Schema(
     {
@@ -19,4 +19,4 @@ const taskSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-module.exports = mongoose.model("Task", taskSchema);
+module.exports = mongoose.model("Task", taskSchema); // exporting the model
